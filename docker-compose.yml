@@ -1,0 +1,28 @@
+version: "3.9"
+
+x-server-tmpl: &server-tmpl
+  env_file:
+    - ./config/.env
+
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    volumes:
+      - .:/backend
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    <<: *server-tmpl
+
+  db:
+    image: postgres:14.3-alpine
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres/data:/var/lib/postgresql/data:z
+    <<: *server-tmpl
+

@@ -1,0 +1,30 @@
+# Byte-compiled / optimized / DLL files
+__pychache__/
+*.pyc
+
+# IDE
+.idea
+.vscode
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Celery beat schedule file
+celerybeat-schedule*
+
+# Database
+postgres/
+
+# Static files
+staticfiles
+
+# Media folder
+media
+
+# Logs
+logs/
+
